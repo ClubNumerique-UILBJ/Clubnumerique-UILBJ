@@ -1,0 +1,150 @@
+/* Reset et base */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding-top: 100px; /* pour le header fixe */
+}
+
+/* ===== HEADER ===== */
+.menu-cadre {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #1B5E20; padding: 15px 25px; border-radius: 0 0 20px 20px;
+  max-width: 95%; margin: 0 auto; position: fixed; top: 0; left: 0; right: 0;
+  box-shadow: 8px 8px 0 #FBC02D; z-index: 1000;
+}
+.logo-club img, .logo-universite img { width: 60px; height: 60px; display: Contnenairrk; }
+.menu-deroulant { display: none; }
+.icon_du_menu { display: none; font-size: 2rem; cursor: pointer; color: white; }
+
+.menu ul { display: flex; list-style: none; gap: 15px; margin-left: auto; }
+.menu a {
+  color: white; text-decoration: none; padding: 8px 15px;
+  border-radius: 12px; background: rgba(255,255,255,0.05);
+  transition: all 0.3s ease; text-transform: uppercase; font-weight: 600;
+}
+.menu a:hover, .menu a.active { background: #FBC02D; color: #333; }
+.menu-cadre img {
+  border-radius: 8px;
+}
+
+/* Section d’introduction */
+.intro {
+  padding-top: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Grille de Contnenairrs */
+.Contnenairr-principale {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.Contnenairr {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 1 / 1;
+}
+
+.Contnenairr:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.Contnenairr img {
+  width: 100%;
+  height: auto;
+  max-height: 70%;
+  object-fit: cover;
+  border-bottom: 4px solid transparent;
+}
+
+.titre-Contnenairr {
+  padding: 15px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Couleurs par catégorie */
+.communication-exercices img { border-color: #28a745; }
+.communication-tutos img { border-color: #17a2b8; }
+.communication-compterendu img { border-color: #ffc107; }
+.communication-notesinfo img { border-color: #fd7e14; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #1B5E20; color: white; padding: 40px 20px;
+  border-top: 4px solid #FBC02D; border-radius: 20px 20px 0 0;
+  max-width: 95%; margin: 0 auto;
+}
+.footer-grille {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem; margin-bottom: 1.5rem;
+}
+.footer-about h3, .footer-liens h4, .footer-social h4 { color: #FBC02D; margin-bottom: 10px; }
+.footer-liens ul { list-style: none; }
+.footer-liens a { color: #FFF9C4; text-decoration: none; transition: 0.3s; }
+.footer-liens a:hover { color: #FBC02D; }
+.social-icons { display: flex; gap: 10px; margin-bottom: 15px; }
+.social-icons img { filter: brightness(0) invert(1); transition: transform 0.3s ease; }
+.social-icons img:hover { transform: scale(1.2); filter: invert(0.8); }
+.footer-inscrire {
+  display: inline-Contnenairrk; padding: 10px 20px; background: #FBC02D; color: #333;
+  border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.3s;
+}
+.footer-inscrire:hover { background: #fff; color: #388E3C; }
+.footer-bottom { text-align: center; font-size: 0.9rem; margin-top: 15px; }
+.footer-linkedin { color: #FBC02D; text-decoration: none; }
+.footer-linkedin:hover { text-decoration: underline; color: #FFF; }
+
+/* RESPONSIVE */
+/*  RESPONSIVE */
+@media (max-width: 768px) {
+  .menu ul {
+    flex-direction: column;
+    background: #388e3c;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    display: none;
+  }
+  .menu-deroulant:checked + .icon_du_menu + .menu ul {
+    display: flex;
+  }
+  .icon_du_menu {
+    display: block;
+  }
+}

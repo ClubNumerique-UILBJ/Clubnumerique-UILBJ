@@ -1,0 +1,788 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+/* ==========================================
+HEADER / MENU NAVIGATION
+========================================== */
+.menu-cadre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1B5E20;
+  padding: 15px 25px;
+  border-radius: 0 0 20px 20px;
+  max-width: 95%;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 8px 8px 0 #FBC02D;
+  z-index: 1000;
+}
+
+.logo-club img,
+.logo-universite img {
+  width: 60px;
+  height: 60px;
+  display: block;
+  border-radius: 10px;
+}
+
+.menu-deroulant {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+.menu-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  margin-left: auto;
+}
+
+.menu-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.menu-nav a:hover,
+.menu-nav a.active {
+  background: #FBC02D;
+  color: #333;
+}
+
+/* ==========================================
+ORGANIGRAMME - CONTAINER PRINCIPAL
+========================================== */
+.organigramme-container {
+  max-width: 95%;
+  margin: 3rem auto;
+  padding: 3rem 2rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 8px 8px 0 #FBC02D, 0 10px 40px rgba(27, 94, 32, 0.15);
+  border: 3px solid #1B5E20;
+}
+
+.organigramme-titre {
+  text-align: center;
+  font-size: 2.8rem;
+  color: #1B5E20;
+  margin-bottom: 0.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.organigramme {
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* ==========================================
+NIVEAUX HIÉRARCHIQUES
+========================================== */
+.niveau {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 3rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.membre-groupe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==========================================
+CONNECTEURS ENTRE NIVEAUX
+========================================== */
+.connecteur-niveau {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.ligne-verticale {
+  width: 4px;
+  height: 60px;
+  background: linear-gradient(180deg, #1B5E20 0%, #388E3C 100%);
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(27, 94, 32, 0.3);
+}
+
+.ligne-horizontale {
+  width: 600px;
+  max-width: 70vw;
+  height: 4px;
+  background: linear-gradient(90deg, #1B5E20 0%, #388E3C 100%);
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(27, 94, 32, 0.3);
+  position: relative;
+}
+
+.ligne-horizontale::before,
+.ligne-horizontale::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #FBC02D;
+  border: 2px solid #1B5E20;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 8px rgba(251, 192, 45, 0.5);
+}
+
+.ligne-horizontale::before {
+  left: -1px;
+}
+
+.ligne-horizontale::after {
+  right: -1px;
+}
+
+/* ==========================================
+CARTES MEMBRES - TAILLES UNIFORMES ET FIXES
+========================================== */
+.membre-carte {
+  position: relative;
+  background: linear-gradient(135deg, #1B5E20 0%, #388E3C 100%);
+  border-radius: 20px;
+  /* DIMENSIONS FIXES POUR TOUTES LES CARTES */
+  width: 300px;
+  height: 480px;
+  padding: 1.5rem 1.2rem;
+  /* Flexbox pour centrer le contenu */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  box-shadow: 8px 8px 0 #FBC02D, 0 10px 30px rgba(27, 94, 32, 0.4);
+  border: 2px solid #FBC02D;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Animation subtile au survol */
+.membre-carte:hover {
+  transform: translateY(-8px);
+  box-shadow: 10px 10px 0 #FBC02D, 0 15px 40px rgba(27, 94, 32, 0.5);
+}
+
+/* Message incitatif au survol */
+.membre-info {
+  font-size: 0.85rem;
+  color: #FFF9C4;
+  font-style: italic;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.membre-carte:hover .membre-info {
+  opacity: 1;
+  color: #FBC02D;
+}
+
+/* ==========================================
+BADGES DE NIVEAU
+========================================== */
+.badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.badge-jaune {
+  background: linear-gradient(135deg, #FBC02D 0%, #F9A825 100%);
+  color: #1B5E20;
+  border-color: #1B5E20;
+}
+
+.badge-vert {
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+}
+
+.badge-bleu-fonce {
+  background: linear-gradient(135deg, #00695C 0%, #00897B 100%);
+}
+
+.badge-bleu-clair {
+  background: linear-gradient(135deg, #26A69A 0%, #4DB6AC 100%);
+}
+
+/* ==========================================
+PHOTO MEMBRE - TAILLE FIXE
+========================================== */
+.photo-container {
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #FBC02D;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.membre-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================
+TEXTES DE LA CARTE
+========================================== */
+.membre-poste {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #FBC02D;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1.3;
+  min-height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.membre-nom {
+  font-size: 1.05rem;
+  color: #FFF9C4;
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.4;
+}
+
+/* ==========================================
+LÉGENDE DES COULEURS
+========================================== */
+.legende {
+  margin-top: 5rem;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border-radius: 15px;
+  border-left: 8px solid #1B5E20;
+  box-shadow: 6px 6px 0 #FBC02D, 0 5px 20px rgba(27, 94, 32, 0.15);
+  border: 2px solid #1B5E20;
+  border-left-width: 8px;
+}
+
+.legende-titre {
+  font-size: 2rem;
+  color: #1B5E20;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-transform: uppercase;
+}
+
+.legende-titre::before {
+  content: '📊';
+  font-size: 2rem;
+}
+
+.legende-contenair {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.legende-élémen {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 #FBC02D, 0 2px 8px rgba(27, 94, 32, 0.1);
+  border: 2px solid transparent;
+}
+
+.legende-badge {
+  width: 50px;
+  height: 30px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(27, 94, 32, 0.3);
+}
+
+.legende-texte {
+  font-size: 1.05rem;
+  color: #2E7D32;
+  font-weight: 500;
+}
+
+.legende-texte strong {
+  color: #1B5E20;
+  font-weight: 700;
+}
+
+/* ==========================================
+FOOTER
+========================================== */
+.footer {
+  background: #1B5E20;
+  color: white;
+  padding: 40px 20px;
+  border-top: 4px solid #FBC02D;
+  border-radius: 20px 20px 0 0;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-about h3,
+.footer-liens h4,
+.footer-social h4 {
+  color: #FBC02D;
+  margin-bottom: 10px;
+}
+
+.footer-liens ul {
+  list-style: none;
+}
+
+.footer-liens a {
+  color: #FFF9C4;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-liens a:hover {
+  color: #FBC02D;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.social-icons img {
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+  filter: invert(0.8);
+}
+
+.footer-inscrire {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #FBC02D;
+  color: #333;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.footer-inscrire:hover {
+  background: #fff;
+  color: #388E3C;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+
+.footer-linkedin {
+  color: #FBC02D;
+  text-decoration: none;
+}
+
+.footer-linkedin:hover {
+  text-decoration: underline;
+  color: #FFF;
+}
+
+/* ==========================================
+RESPONSIVE - TABLETTE
+========================================== */
+@media (max-width: 1024px) {
+  .organigramme-container {
+    margin: 2rem 3%;
+    padding: 2.5rem 2rem;
+  }
+
+  .niveau {
+    gap: 2rem;
+  }
+
+  .membre-carte {
+    width: 280px;
+    height: 380px;
+  }
+
+  .photo-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .ligne-horizontale {
+    width: 500px;
+  }
+}
+
+/* ==========================================
+RESPONSIVE - TABLETTE & MOBILE
+========================================== */
+@media (max-width: 768px) {
+  body {
+    padding-top: 90px;
+  }
+
+  /* Menu responsive */
+  .menu-nav ul {
+    flex-direction: column;
+    background: #388E3C;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    display: none;
+    padding: 1rem 0;
+  }
+
+  .menu-deroulant:checked + .menu-icon + .menu-nav ul {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  /* Container principal */
+  .organigramme-container {
+    margin: 2rem 2%;
+    padding: 2rem 1.5rem;
+  }
+
+  .organigramme-titre {
+    font-size: 2rem;
+  }
+
+  .organigramme-sous-titre {
+    font-size: 1rem;
+  }
+
+  /* Organigramme en colonne */
+  .niveau {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Forcer les groupes de membres à prendre toute la largeur */
+  .membre-groupe {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* MASQUER les connecteurs sur mobile */
+  .connecteur-niveau {
+    display: none;
+  }
+
+  /* Cartes uniformes sur mobile - FORCER LES DIMENSIONS */
+  .membre-carte {
+    width: 100% !important;
+    max-width: 350px !important;
+    height: 380px !important;
+    margin: 0 auto;
+  }
+
+  .photo-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .membre-poste {
+    font-size: 1.3rem;
+  }
+
+  /* Légende */
+  .legende {
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .legende-titre {
+    font-size: 1.6rem;
+  }
+
+  .legende-élémen {
+    padding: 0.8rem 1rem;
+  }
+
+  .legende-badge {
+    width: 45px;
+    height: 28px;
+  }
+
+  .legende-texte {
+    font-size: 0.95rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 30px 15px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ==========================================
+RESPONSIVE - MOBILE
+========================================== */
+@media (max-width: 480px) {
+  body {
+    padding-top: 85px;
+  }
+
+  .menu-cadre {
+    padding: 12px 15px;
+  }
+
+  .logo-club img,
+  .logo-universite img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .organigramme-container {
+    margin: 1.5rem 3%;
+    padding: 1.5rem 1rem;
+  }
+
+  .organigramme-titre {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+
+  .organigramme-sous-titre {
+    font-size: 0.9rem;
+  }
+
+  /* Forcer les groupes de membres à prendre toute la largeur */
+  .membre-groupe {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Cartes uniformes sur petit mobile - FORCER LES DIMENSIONS */
+  .membre-carte {
+    width: 100% !important;
+    max-width: 300px !important;
+    height: 360px !important;
+    margin: 0 auto;
+  }
+
+  .photo-container {
+    width: 110px;
+    height: 110px;
+    border-width: 4px;
+  }
+
+  .membre-poste {
+    font-size: 1.2rem;
+    min-height: 3.2rem;
+  }
+
+  .membre-nom {
+    font-size: 1rem;
+  }
+
+  .badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+    top: 12px;
+    left: 12px;
+  }
+
+  .legende {
+    padding: 1.5rem 1rem;
+  }
+
+  .legende-titre {
+    font-size: 1.3rem;
+  }
+
+  .legende-élémen {
+    padding: 0.7rem 0.8rem;
+    gap: 1rem;
+  }
+
+  .legende-badge {
+    width: 40px;
+    height: 25px;
+  }
+
+  .legende-texte {
+    font-size: 0.85rem;
+  }
+
+  .footer {
+    padding: 25px 12px;
+  }
+
+  .social-icons img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* ==========================================
+RESPONSIVE - TRÈS PETIT MOBILE
+========================================== */
+@media (max-width: 375px) {
+  .organigramme-container {
+    margin: 1rem 2%;
+    padding: 1.2rem 0.8rem;
+  }
+
+  .organigramme-titre {
+    font-size: 1.4rem;
+  }
+
+  .organigramme-sous-titre {
+    font-size: 0.85rem;
+  }
+
+  /* Forcer les groupes de membres à prendre toute la largeur */
+  .membre-groupe {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Cartes uniformes - FORCER LES DIMENSIONS */
+  .membre-carte {
+    width: 100% !important;
+    max-width: 280px !important;
+    height: 340px !important;
+    margin: 0 auto;
+  }
+
+  .photo-container {
+    width: 100px;
+    height: 100px;
+    border-width: 3px;
+  }
+
+  .membre-poste {
+    font-size: 1.1rem;
+    min-height: 3rem;
+  }
+
+  .membre-nom {
+    font-size: 0.95rem;
+  }
+
+  .badge {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.65rem;
+    top: 10px;
+    left: 10px;
+  }
+
+  .legende-titre {
+    font-size: 1.15rem;
+  }
+
+  .legende-texte {
+    font-size: 0.8rem;
+  }
+}
+
+/* ==========================================
+OPTIMISATIONS TACTILES
+========================================== */
+@media (hover: none) and (pointer: coarse) {
+  .membre-carte {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .menu-nav a,
+  .footer-liens a,
+  .social-icons a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  * {
+    touch-action: manipulation;
+  }
+
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}

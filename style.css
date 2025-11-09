@@ -1,0 +1,91 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f0f0; color: #333; line-height: 1.6; }
+
+/* HEADER */
+.menu-cadre {
+  display: flex; align-items: center; justify-content: space-between;
+  background-color: #1B5E20; padding: 15px 25px; border-radius: 0 0 20px 20px;
+  max-width: 95%; margin: 0 auto; position: fixed; top: 0; left: 0; right: 0;
+  box-shadow: 8px 8px 0 #FBC02D; z-index: 1000;
+}
+.logo-club img, .logo-universite img { width: 60px; height: 60px; display: block; }
+.menu-deroulant { display: none; }
+.icon_du_menu { display: none; font-size: 2rem; cursor: pointer; color: white; }
+
+/* Menu */
+.menu ul {
+  display: flex; list-style: none; gap: 15px; margin-left: auto;
+}
+.menu a {
+  color: white; text-decoration: none; padding: 8px 15px;
+  border-radius: 12px; background-color: rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+  text-transform: uppercase; font-weight: 600;
+}
+.menu a:hover {
+  background-color: #FBC02D; color: #333;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.menu a.active { background: #FBC02D; color: #333; }
+.menu-cadre img {
+  border-radius: 8px;
+}
+/* SECTION INTRO */
+.intro-Bienvenue {
+  margin-top: 100px; padding: 40px 20px; background-image: url("Images/UIL_EPL.webp");
+  background-size: cover; background-position: center; border-radius: 20px; position: relative;
+  overflow: hidden; max-width: 95%; margin-left: auto; margin-right: auto;
+  color: white; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  animation: zoomIn 15s ease-in-out infinite alternate;
+}
+.intro-Bienvenue::before {
+  content: ""; position: absolute; inset: 0; border-radius: 20px;
+  background: linear-gradient(120deg, rgba(56, 142, 60, 0.85), rgba(76, 175, 80, 0.75));
+  z-index: 0; animation: bgFlow 10s linear infinite alternate;
+}
+.intro-image, .intro-text { position: relative; z-index: 1; }
+.intro-image img { width: 300px; max-width: 100%; border-radius: 15px; animation: float 4s ease-in-out infinite; }
+.intro-text { flex: 1 1 400px; padding: 20px; animation: fadeSlideIn 1.5s ease forwards; }
+.titre-bienvenue { font-size: 2rem; margin-bottom: 20px; animation: fadeUp 1.5s ease-out; }
+.pragraphe-intro { text-align: justify; margin-bottom: 15px; opacity: 0; transform: translateY(20px); animation: fadeInUp 1s ease forwards; }
+.pragraphe-intro em { font-weight: bold; color: #FFD600; }
+
+/* FOOTER */
+.footer { background: #1B5E20; color: white; padding: 40px 20px; border-top: 4px solid #FBC02D; border-radius: 20px 20px 0 0; max-width: 95%;margin: 0 auto;}
+.footer-grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 1.5rem; }
+.footer-about h3, footer-liens h4, .footer-social h4 { color: #FBC02D; margin-bottom: 10px; }
+.footer-liens ul { list-style: none; padding: 0; }
+.footer-liens a { color: #FFF9C4; text-decoration: none; transition: 0.3s; }
+.footer-liens a:hover { color: #FBC02D; }
+.social-icons { display: flex; gap: 10px; margin-bottom: 15px; }
+.social-icons img { filter: brightness(0) invert(1); transition: transform 0.3s ease; }
+.social-icons img:hover { transform: scale(1.2); filter: invert(85%) sepia(75%) saturate(400%) hue-rotate(20deg); }
+.footer-inscrire { background: #FBC02D; color: #333; padding: 10px 20px; border-radius: 8px; font-weight: 600; display: inline-block; transition: all 0.3s ease; }
+.footer-inscrire:hover { background: #FFD54F; transform: translateY(-3px); }
+.footer-bottom { text-align: center; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px; }
+.footer-linkedin { color: #FBC02D; text-decoration: none; font-weight: bold; transition: color 0.3s ease; }
+.footer-linkedin:hover { color: #FFD54F; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { 0%{opacity:0; transform:translateY(20px);} 100%{opacity:1; transform:translateY(0);} }
+@keyframes fadeInUp { to{opacity:1; transform:translateY(0);} }
+@keyframes fadeSlideIn { from{opacity:0; transform:translateX(40px);} to{opacity:1; transform:translateX(0);} }
+@keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
+@keyframes zoomIn { 0%{background-size:100%;} 100%{background-size:110%;} }
+@keyframes bgFlow { 0%{background-position:0% 50%;}100%{background-position:100% 50%;} }
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+  .icon_du_menu { display: block; }
+  .menu ul {
+    display: none; flex-direction: column; position: absolute;
+    top: 70px; right: 20px; background-color: #388E3C;
+    border-radius: 12px; padding: 10px 20px; width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1001;
+  }
+  .menu-deroulant:checked + .icon_du_menu + .menu ul { display: flex; }
+  .menu a { padding: 12px; font-size: 1rem; }
+
+  .intro-Bienvenue { flex-direction: column; padding: 20px 10px; }
+  .intro-text { flex: none; padding: 10px 0; }
+ 

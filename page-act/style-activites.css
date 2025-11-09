@@ -1,0 +1,329 @@
+/* ===== BASE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f0f0f0;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+.menu-cadre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1b5e20;
+  padding: 15px 25px;
+  border-radius: 0 0 20px 20px;
+  max-width: 95%;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 8px 8px 0 #fbc02d;
+  z-index: 1000;
+}
+.logo-club img,
+.logo-universite img {
+  width: 60px;
+  height: 60px;
+  display: block;
+}
+.menu-deroulant {
+  display: none;
+}
+.icon_du_menu {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  margin-left: auto;
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.menu a:hover,
+.menu a.active {
+  background: #fbc02d;
+  color: #333;
+}
+.menu-cadre img {
+  border-radius: 8px;
+}
+
+/* ===== HERO ===== */
+.banderole {
+  margin-top: 100px;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(
+      120deg,
+      rgba(251, 192, 45, 0.75),
+      rgba(76, 175, 80, 0.75)
+    ),
+    url("Logo/Bureau2024-2025.webp") center/cover no-repeat fixed;
+  border-radius: 20px;
+  color: white;
+  max-width: 95%;
+  margin-inline: auto;
+}
+.banderole h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+.banderole p {
+  font-size: 1.2rem;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 40px 20px;
+  max-width: 95%;
+  margin: 0 auto 40px auto;
+}
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2e7d32;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+section h2::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 50%;
+  background: #fbc02d;
+  bottom: -8px;
+  border-radius: 2px;
+}
+
+/* ===== PÔLES ===== */
+.grille_des_poles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.cartes_des_poles {
+  position: relative;
+  padding: 2rem;
+  color: #f9f9f9 1;
+  border-radius: 15px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 8px 20px #2e7d32;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.4s;
+}
+.cartes_des_poles .Superposition {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      120deg,
+      rgba(76, 175, 80, 0.75),
+      rgba(251, 192, 45, 0.75)
+    ),
+    url("Logo/LOGO.png") center/cover no-repeat fixed;
+  mix-blend-mode: multiply;
+}
+.cartes_des_poles:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+/* ===== CARTES ===== */
+.cartes_multipole {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+.sous_cartes {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.sous_cartes:hover {
+  transform: translateY(-8px);
+}
+.sous_cartes img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.sous_cartes h3 {
+  margin: 1rem;
+  font-size: 1.3rem;
+  color: #145a32;
+}
+.sous_cartes p {
+  margin: 0 1rem 1.5rem;
+  color: #555;
+}
+
+/* ===== GALERIE ===== */
+.Section-galeries_des_séances {
+  text-align: center;
+}
+.galerie-description {
+  color: #555;
+  margin-bottom: 20px;
+}
+.contenaire_de_galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.élément_de_la_galerie {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.élément_de_la_galerie img,
+.élément_de_la_galerie video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+.élément_de_la_galerie:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.élément_de_la_galerie figcaption {
+  padding: 10px;
+  font-size: 0.95rem;
+  color: #2e7d32;
+  font-weight: 600;
+  background: #fff8e1;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #1b5e20;
+  color: white;
+  padding: 40px 20px;
+  border-top: 4px solid #fbc02d;
+  border-radius: 20px 20px 0 0;
+  max-width: 95%;
+  margin: 0 auto;
+}
+.footer-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.footer-about h3,
+.footer-liens h4,
+.footer-social h4 {
+  color: #fbc02d;
+  margin-bottom: 10px;
+}
+.footer-liens ul {
+  list-style: none;
+}
+.footer-liens a {
+  color: #fff9c4;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.footer-liens a:hover {
+  color: #fbc02d;
+}
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.social-icons img {
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+.social-icons img:hover {
+  transform: scale(1.2);
+  filter: invert(0.8);
+}
+.footer-inscrire {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fbc02d;
+  color: #333;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.footer-inscrire:hover {
+  background: #fff;
+  color: #388e3c;
+}
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+.footer-linkedin {
+  color: #fbc02d;
+  text-decoration: none;
+}
+.footer-linkedin:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/*  RESPONSIVE */
+@media (max-width: 768px) {
+  .menu ul {
+    flex-direction: column;
+    background: #388e3c;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    display: none;
+  }
+  .menu-deroulant:checked + .icon_du_menu + .menu ul {
+    display: flex;
+  }
+  .icon_du_menu {
+    display: block;
+  }
+  .cartes_multipole,
+  .grille_des_poles,
+  .projects-grid,
+  .partenaires-grid,
+  .contenaire_de_galerie {
+    grid-template-columns: 1fr;
+  }
+}

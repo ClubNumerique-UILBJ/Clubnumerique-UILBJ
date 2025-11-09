@@ -1,0 +1,227 @@
+:root {
+  --vert: #0c5c3b; /* Vert foncé inspiré UIL */
+  --jaune: #f7c500; /* Jaune doré UIL */
+  --blanc: #ffffff;
+  --gris: #444;
+}
+
+body {
+  padding-top: 100px;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--blanc);
+  color: var(--gris);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fafafa;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+}
+
+.item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.info {
+  padding: 15px;
+  text-align: center;
+}
+
+.info p {
+  margin: 0 0 10px;
+  font-weight: bold;
+}
+
+.info a {
+  display: inline-block;
+  background-color: var(--vert);
+  color: var(--jaune);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.info a:hover {
+  background-color: var(--jaune);
+  color: var(--vert);
+}
+
+/* ===== HEADER ===== */
+.menu-cadre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1b5e20;
+  padding: 15px 25px;
+  border-radius: 0 0 20px 20px;
+  max-width: 95%;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 8px 8px 0 #fbc02d;
+  z-index: 1000;
+}
+.logo-club img,
+.logo-universite img {
+  width: 60px;
+  height: 60px;
+  display: block;
+}
+.menu-deroulant {
+  display: none;
+}
+.icon_du_menu {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  margin-left: auto;
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.menu a:hover,
+.menu a.active {
+  background: #fbc02d;
+  color: #333;
+}
+.menu-cadre img {
+  border-radius: 8px;
+}
+/* ===== FOOTER ===== */
+.footer {
+  background: #1b5e20;
+  color: white;
+  padding: 40px 20px;
+  border-top: 4px solid #fbc02d;
+  border-radius: 20px 20px 0 0;
+  max-width: 95%;
+  margin: 0 auto;
+}
+.footer-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.footer-about h3,
+.footer-liens h4,
+.footer-social h4 {
+  color: #fbc02d;
+  margin-bottom: 10px;
+}
+.footer-liens ul {
+  list-style: none;
+}
+.footer-liens a {
+  color: #fff9c4;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.footer-liens a:hover {
+  color: #fbc02d;
+}
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.social-icons img {
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+.social-icons img:hover {
+  transform: scale(1.2);
+  filter: invert(0.8);
+}
+.footer-inscrire {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fbc02d;
+  color: #333;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.footer-inscrire:hover {
+  background: #fff;
+  color: #388e3c;
+}
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+.footer-linkedin {
+  color: #fbc02d;
+  text-decoration: none;
+}
+.footer-linkedin:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .menu ul {
+    flex-direction: column;
+    background: #388e3c;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    display: none;
+  }
+  .menu-deroulant:checked + .icon_du_menu + .menu ul {
+    display: flex;
+  }
+  .icon_du_menu {
+    display: block;
+  }
+  .cartes_multipole,
+  .grille_des_poles,
+  .projects-grid,
+  .partenaires-grid,
+  .contenaire_de_galerie {
+    grid-template-columns: 1fr;
+  }
+}
