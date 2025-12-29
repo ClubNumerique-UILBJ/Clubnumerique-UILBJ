@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vœux 2025 | Club Numérique UIL-BJ</title>
+    <meta name="author" content="Michel Ulcède EDOU EDOU" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- Open Graph  -->
+    <meta property="og:title" content="Club Numérique UIL-BJ" />
+    <meta
+      property="og:description"
+      content="Le Club Numérique de l’Université Internationale de Libreville souhaite une Bonne Année 2025
+À toute la famille du Club Numérique UIL-BJ.
+Que cette année soit une symphonie d'innovation et de partage."
+    />
+    <meta
+      property="og:image"
+      content="https://clubnumerique-uilbj.github.io/Clubnumerique-UILBJ/Images/qr.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://clubnumerique-uilbj.github.io/Clubnumerique-UILBJ/VOEUX.html"
+    />
+    <meta property="og:type" content="website" />
+    <style>
+   
+        :root {
+            --deep-night: #0a0a0c;
+            --gold-glow: #ffcc33;
+            --african-orange: #e67e22;
+            --soft-white: #f4f4f4;
+            --neon-link: #00f2ff;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--deep-night);
+            color: var(--soft-white);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        #festive-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 20px;
+            background: rgba(10, 10, 12, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+        }
+
+        
+        .logo-container {
+            margin-bottom: 2rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .club-logo {
+            max-width: 150px;
+            height: auto;
+            filter: drop-shadow(0 0 15px var(--gold-glow));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        
+        .step {
+            display: none;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 1s ease;
+        }
+
+        .step.active {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--gold-glow), var(--african-orange), var(--neon-link));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+        
+        .message {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        
+        .btn-celebrate {
+            background: linear-gradient(45deg, var(--african-orange), var(--gold-glow));
+            border: none;
+            padding: 15px 40px;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+
+        
+        input#nameInput {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--gold-glow);
+            padding: 12px 20px;
+            border-radius: 25px;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            outline: none;
+        }
+
+        
+        #word-dance {
+            height: 60px;
+            font-weight: bold;
+            color: var(--gold-glow);
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="festive-canvas"></canvas>
+
+    <div class="container">
+        
+        <div class="logo-container">
+            <img src="logo.png" alt="Club Numérique UIL-BJ" class="club-logo">
+        </div>
+
+        <div id="step1" class="step active">
+            <p id="typing1" class="message"></p>
+            <button class="btn-celebrate" id="btn1" style="display:none;" onclick="nextStep(2)">Joins-toi à nous</button>
+        </div>
+
+        <div id="step2" class="step">
+            <h1>Bonne Année 2025</h1>
+            <p class="message">
+                À toute la famille du <strong class="CN">Club Numérique UIL-BJ</strong>.<br>
+                Que cette année soit une symphonie d'innovation et de partage.
+            </p>
+            <div id="word-dance"></div>
+            <button class="btn-celebrate" onclick="nextStep(3)">Célébrons ensemble</button>
+        </div>
+
+        <div id="step3" class="step">
+            <p class="message">Cette année construisons l'avenir ensemble.<br>Quel est ton prénom ?</p>
+            <input type="text" id="nameInput" placeholder="Ton prénom ici..." autocomplete="off">
+            <br>
+            <button class="btn-celebrate" onclick="showFinal()">Recevoir mes vœux</button>
+        </div>
+
+        <div id="step4" class="step">
+            <h1 id="finalTitle">Merci d'être là !</h1>
+            <p class="message" id="finalMessage"></p>
+            <p style="color: var(--gold-glow); letter-spacing: 2px;">PROSPÉRITÉ • SANTÉ • CODE</p>
+        </div>
+
+    </div>
+
+    <script>
+      
+        const canvas = document.getElementById('festive-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedY = Math.random() * 1 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.color = `rgba(255, ${200 + Math.random() * 55}, ${Math.random() * 100}, ${Math.random()})`;
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 100; i++) particles.push(new Particle());
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        
+        function typeEffect(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = "";
+            let timer = setInterval(() => {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(timer);
+                    if(element.id === "typing1") document.getElementById('btn1').style.display = 'inline-block';
+                }
+            }, speed);
+        }
+
+        function nextStep(n) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            setTimeout(() => {
+                document.querySelectorAll('.step').forEach(s => s.style.display = 'none');
+                const next = document.getElementById('step' + n);
+                next.style.display = 'block';
+                setTimeout(() => next.classList.add('active'), 50);
+                if(n === 2) startWordDance();
+            }, 600);
+        }
+
+        function startWordDance() {
+            const words = ["Club Numérique UIL-BJ", "Succès", "Santé", "Innovation", "Créativité"];
+            let i = 0;
+            const div = document.getElementById('word-dance');
+            setInterval(() => {
+                div.style.opacity = 0;
+                setTimeout(() => {
+                    div.innerText = words[i % words.length];
+                    div.style.opacity = 1;
+                    i++;
+                }, 500);
+            }, 2500);
+        }
+
+        function showFinal() {
+            const name = document.getElementById('nameInput').value || "Cher membre";
+            document.getElementById('finalTitle').innerText = `Bonne année,\n ${name} !`;
+            document.getElementById('finalMessage').innerText = "Que l'énergie du Club Numérique UIL-BJ t'accompagne dans chaque projet en 2025. \nRestons connectés, restons humains.";
+            nextStep(4);
+        }
+
+       
+        window.onload = () => {
+            typeEffect(document.getElementById('typing1'), "La communauté se rassemble... Prends un instant pour accueillir cette nouvelle année avec nous.");
+        };
+    </script>
+</body>
+</html>
