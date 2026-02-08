@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="author" content="Michel Ulcède EDOU EDOU" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour toi, mon amour | Une surprise unique & Inoubliable</title>
+    <meta name="description" content="Une page souvenir interactive et personnalisée pour la Saint-Valentin, débordante d'amour et de moments précieux.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Une surprise en Coeur pour Toi ❤️">
+    <meta property="og:description" content="Découvre notre histoire et nos plus beaux souvenirs dans cette page unique.">
+    <meta property="og:image" content="assets/og-image.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header__container">
+            <span class="logo">Amour & Souvenirs <span class="heart-pulse">❤️</span></span>
+            <nav>
+                <button id="music-toggle" class="btn-icon" aria-label="Activer la musique">
+                    <i class="fas fa-music"></i> <span class="visually-hidden">Musique</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="hero" class="hero">
+    <div class="hero__bg">
+        <video autoplay muted loop playsinline poster="assets/hero-placeholder.jpg" id="hero-video">
+            <source src="assets/hero-bg-loop.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <canvas id="heart-particles-canvas" class="hero__particles"></canvas>
+    </div>
+    
+    <div class="container hero__content">
+        <h1 class="hero__title fade-in-up">Pour toi, <br>mon amour <span class="emoji-heartbeat">❤️</span></h1>
+        <p class="hero__subtitle typing-animation"></p> 
+    </div>
+    
+    <div class="scroll-indicator animated-arrow">↓</div>
+</section>
+
+<section id="story" class="section story">
+    <div class="container">
+        <h2 class="section-title reveal-text">Notre Histoire</h2>
+        
+        <article class="story__chapter scroll-reveal chapter-1">
+            <div class="story__chapter-image">
+                <img src="assets/story-chapter1.jpg" alt="Photo de la rencontre" loading="lazy">
+            </div>
+            <div class="story__chapter-content">
+                <div class="story__date text-gradient">Chapitre 1 : La Rencontre</div>
+                <h3>Le Début d'un Rêve</h3>
+                <p class="typewriter-text" data-text="Tout a commencé par un regard volé, un sourire échangé. Ce jour-là, l'univers a conspiré pour que nos chemins se croisent, et rien n'a plus jamais été pareil.">
+                    </p>
+            </div>
+        </article>
+
+        <article class="story__chapter scroll-reveal chapter-2 reversed">
+            <div class="story__chapter-image">
+                <img src="assets/story-chapter2.jpg" alt="Photo de nos premiers moments" loading="lazy">
+            </div>
+            <div class="story__chapter-content">
+                <div class="story__date text-gradient">Chapitre 2 : Nos Premiers Souvenirs</div>
+                <h3>Des Instants Gravés</h3>
+                <p>Les rires complices, les aventures impromptues, et ces moments simples qui ont tissé la toile de notre amour. Chaque souvenir avec toi est un joyau précieux.</p>
+            </div>
+        </article>
+        
+        <article class="story__chapter scroll-reveal chapter-3">
+            <div class="story__chapter-image">
+                <img src="assets/story-chapter3.jpg" alt="Photo de nos projets futurs" loading="lazy">
+            </div>
+            <div class="story__chapter-content">
+                <div class="story__date text-gradient">Chapitre 3 : Vers l'Avenir Ensemble</div>
+                <h3>L'Amour qui Grandit</h3>
+                <p>Aujourd'hui, notre histoire continue de s'écrire, remplie de promesses, de rêves partagés et d'un amour qui ne cesse de s'épanouir. Je suis impatient de chaque nouveau chapitre à tes côtés.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section id="gallery" class="section gallery">
+    <div class="container">
+        <h2 class="section-title reveal-text">Nos Moments Inoubliables <span class="icon-camera">📸</span></h2>
+        <div class="gallery__grid">
+            <div class="gallery__item scroll-reveal item-fade-in" tabindex="0" role="button" aria-label="Voir la photo en grand">
+                <img src="assets/gallery-pic1.jpg" alt="Dîner romantique" loading="lazy" srcset="assets/gallery-pic1-sm.jpg 500w, assets/gallery-pic1.jpg 1000w" sizes="(max-width: 600px) 500px, 1000px">
+                <div class="gallery__overlay"><span>Dîner aux chandelles <i class="fas fa-heart"></i></span></div>
+            </div>
+            
+            <div class="gallery__item scroll-reveal item-fade-in" tabindex="0" role="button" aria-label="Voir la vidéo en grand">
+                <video autoplay muted loop playsinline poster="assets/gallery-vid-poster1.jpg">
+                    <source src="assets/gallery-video1.mp4" type="video/mp4">
+                </video>
+                <div class="gallery__overlay"><span>Nos fous rires <i class="fas fa-smile-beam"></i></span></div>
+            </div>
+
+            <div class="gallery__item scroll-reveal item-fade-in" tabindex="0" role="button">
+                <img src="assets/gallery-pic2.jpg" alt="Voyage à la montagne" loading="lazy" srcset="assets/gallery-pic2-sm.jpg 500w, assets/gallery-pic2.jpg 1000w" sizes="(max-width: 600px) 500px, 1000px">
+                <div class="gallery__overlay"><span>L'évasion en montagne <i class="fas fa-mountain"></i></span></div>
+            </div>
+            
+            <div class="gallery__item scroll-reveal item-fade-in" tabindex="0" role="button">
+                <img src="assets/gallery-pic3.jpg" alt="Coucher de soleil romantique" loading="lazy" srcset="assets/gallery-pic3-sm.jpg 500w, assets/gallery-pic3.jpg 1000w" sizes="(max-width: 600px) 500px, 1000px">
+                <div class="gallery__overlay"><span>Nos couchers de soleil <i class="fas fa-sun"></i></span></div>
+            </div>
+
+            <div class="gallery__item scroll-reveal item-fade-in" tabindex="0" role="button">
+                <video autoplay muted loop playsinline poster="assets/gallery-vid-poster2.jpg">
+                    <source src="assets/gallery-video2.mp4" type="video/mp4">
+                </video>
+                <div class="gallery__overlay"><span>Petits moments de tendresse <i class="fas fa-hand-holding-heart"></i></span></div>
+            </div>
+
+            <div class="gallery__item scroll-reveal item-fade-in" tabindex="0" role="button">
+                <img src="assets/gallery-pic4.jpg" alt="Photo de couple joyeuse" loading="lazy" srcset="assets/gallery-pic4-sm.jpg 500w, assets/gallery-pic4.jpg 1000w" sizes="(max-width: 600px) 500px, 1000px">
+                <div class="gallery__overlay"><span>La joie d'être ensemble <i class="fas fa-laugh-squint"></i></span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="reasons" class="section reasons">
+    <div class="container">
+        <h2 class="section-title reveal-text">Pourquoi je t'aime <span class="icon-love-letter">💌</span></h2>
+        <ul class="reasons__list" id="reasons-list">
+            <li class="reason__item"><span><i class="fas fa-smile"></i></span> Pour ton sourire qui éclaire mes journées</li>
+            <li class="reason__item"><span><i class="fas fa-users"></i></span> Parce que tu es ma meilleur ami, ma confident</li>
+            <li class="reason__item"><span><i class="fas fa-lightbulb"></i></span> Pour ta façon unique de voir le monde et m'inspirer</li>
+            <li class="reason__item"><span><i class="fas fa-hand-heart"></i></span> Parce qu'avec toi, je me sens complet et en sécurité</li>
+            <li class="reason__item"><span><i class="fas fa-heart-circle-check"></i></span> Pour tout ce que nous avons déjà construit et allons bâtir</li>
+            <li class="reason__item"><span><i class="fas fa-feather-alt"></i></span> Pour la légèreté et la joie que tu apportes à ma vie</li>
+            <li class="reason__item"><span><i class="fas fa-star"></i></span> Parce que tu es ma personne préférée, mon étoile</li>
+        </ul>
+        <div class="reasons__trigger">
+            <button class="btn btn--primary" id="reveal-reasons-btn">Découvrir plus de raisons</button>
+        </div>
+    </div>
+</section>
+
+<section id="message" class="section message">
+    <div class="container">
+        <div class="message__card scroll-reveal zoom-in">
+            <p class="message__text typewriter-final" data-text="&quot;Mon amour, chaque jour à tes côtés est un cadeau précieux. Je t'aime plus que les mots ne peuvent le dire, aujourd'hui, demain, et pour toujours.&quot;">
+                </p>
+            <div class="message__signature reveal-slide-right">— Ton(ta) [Prénom]</div>
+            <div class="message__date reveal-slide-left">14 Février 2026</div>
+            <div class="heart-beat-container"><i class="fas fa-heart pulsating-heart"></i></div>
+        </div>
+    </div>
+    <canvas id="confetti-canvas"></canvas>
+</section>
+
+<section id="order" class="section order">
+    <div class="container order__container">
+        <div class="order__info">
+            <h2 class="reveal-text">Créez votre propre Page d'Amour Éternel <span class="icon-gift">🎁</span></h2>
+            <p class="lead">Offrez une expérience digitale unique pour la Saint-Valentin, un anniversaire, ou tout simplement pour dire "Je t'aime".</p>
+            <ul class="order__features">
+                <li class="lead">🔒 Lien privé</li>
+                <li class="lead">⚡ Livraison Express sous 48h</li>
+            </ul>
+            <p class="price bounce-in">À partir de <strong>3000 FCFA</strong> (Offre Saint-Valentin)</p>
+        </div>
+
+    </div>
+    
+</section>
+
+<footer class="footer">
+    <div class="container footer__container">
+        <p>&copy; 2026 Amour & Souvenirs. Tous droits réservés. <span class="footer-heart">❤️</span></p>
+        <div class="footer__links">
+            <a href="#contact" class="footer__link">Contact</a>
+            <a href="#mentions-legales" class="footer__link">Mentions Légales</a>
+            <a href="#private-access" class="footer__link">Accès Privé</a>
+        </div>
+    </div>
+</footer>
+
+<dialog id="lightbox" class="lightbox">
+    <div class="lightbox__content">
+        <button id="lightbox-close" aria-label="Fermer la galerie">✕</button>
+        <div id="lightbox-media-container"></div>
+        <p id="lightbox-caption"></p>
+        <div class="lightbox__nav">
+            <button id="lightbox-prev" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+            <button id="lightbox-next" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
